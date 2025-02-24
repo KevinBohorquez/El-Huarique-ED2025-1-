@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- Encabezado -->
+    <Text layoutX="17.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Bienvenido, administrador" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="15.0" />
+
+    <Label fx:id="login_date" styleClass="date_lbl" text="Hoy 2024-11-07" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
+
+    <!-- Sección de Mesas Disponibles -->
+    <Text layoutX="47.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Mesas disponibles:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
+
+
+
+    <!-- Sección de Reservar Mesa -->
+    <Text layoutX="26.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Reservar una mesa:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0" />
+   <ComboBox layoutX="33.0" layoutY="108.0" prefHeight="48.0" prefWidth="310.0" />
+
+    <VBox fillWidth="false" layoutX="594.0" layoutY="372.0" prefHeight="341.0" prefWidth="752.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="79.0">
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Cantidad" />
+        <TextField fx:id="table_choosen_fld" prefWidth="310.0" />
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Numero de Lote" />
+        <TextField fx:id="dni_costumer_fld" prefHeight="28.0" prefWidth="310.0" />
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Nombre del cliente:" />
+        <TextField fx:id="name_costumer_fld" prefHeight="28.0" prefWidth="311.0" />
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Nombre del mesero:" />
+        <TextField fx:id="name_waiter_fld" prefHeight="28.0" prefWidth="311.0" />
+
+        <Button fx:id="table_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="311.0" text="Agregar Cliente" />
+    </VBox>
+
+    <!-- Etiqueta de Error -->
+    <Label fx:id="error_lbl" layoutX="372.0" layoutY="337.0" styleClass="error_lbl" />
+
+</AnchorPane>

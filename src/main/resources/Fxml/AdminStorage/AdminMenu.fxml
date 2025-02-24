@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.AdminStorage.AdminStorageOptionsController">
+
+    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+
+        <!-- Título -->
+        <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+            <FontAwesomeIconView glyphName="CUTLERY" size="40" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="El Huarique" />
+        </VBox>
+
+        <!-- Menú Principal -->
+        <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.bottomAnchor="130.39999999999998" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+
+            <Button fx:id="inicio_btn" mnemonicParsing="false" text="Inicio">
+                <graphic>
+                    <FontAwesomeIconView glyphName="BOOK" size="20" text="" />
+                </graphic>
+            </Button>
+
+            <Button fx:id="pescados_btn" mnemonicParsing="false" prefWidth="189.0" text="Pescados">
+                <graphic>
+                    <FontAwesomeIconView glyphName="DATABASE" size="20" />
+                </graphic>
+            </Button>
+
+            <Button fx:id="carnes_btn" mnemonicParsing="false" prefWidth="189.0" text="Carnes">
+                <graphic>
+                    <FontAwesomeIconView glyphName="DATABASE" size="20" />
+                </graphic>
+            </Button>
+
+            <Button fx:id="verduras_btn" mnemonicParsing="false" prefWidth="189.0" text="Verduras">
+                <graphic>
+                    <FontAwesomeIconView glyphName="DATABASE" size="20" />
+                </graphic>
+            </Button>
+
+            <Button fx:id="utensilios_btn" mnemonicParsing="false" prefWidth="189.0" text="Utensilios">
+                <graphic>
+                    <FontAwesomeIconView glyphName="DATABASE" size="20" />
+                </graphic>
+            </Button>
+
+            <Line endX="120.0" />
+
+            <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Salir">
+                <graphic>
+                    <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
+                </graphic>
+            </Button>
+        </VBox>
+
+        <!-- Reporte de Sugerencias/Bugs -->
+        <VBox prefHeight="120.0" prefWidth="130.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+
+            <styleClass>
+                <String fx:value="report_container" />
+                <String fx:value="report_container" />
+            </styleClass>
+
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sugerencia / bug ?" />
+            <Label text="Reporta sugerencias o bugs" />
+
+            <Button fx:id="report_btn" mnemonicParsing="false" text="Reportar">
+                <graphic>
+                    <FontAwesomeIconView glyphName="PLUS" text="" />
+                </graphic>
+            </Button>
+        </VBox>
+
+    </AnchorPane>
+
+</VBox>
