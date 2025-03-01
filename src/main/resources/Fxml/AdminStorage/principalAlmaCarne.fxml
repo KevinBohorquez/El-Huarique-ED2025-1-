@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="transactions_container" stylesheets="@../../Styles/Transactions.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.Admin.QueueController">
+<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="transactions_container" stylesheets="@../../Styles/Transactions.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.AdminStorage.CarnesController">
 
     <Text layoutX="329.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Almacen Carne" AnchorPane.bottomAnchor="690.470703125" AnchorPane.leftAnchor="329.0" AnchorPane.rightAnchor="308.1728515625" AnchorPane.topAnchor="19.626953125" />
-   <VBox layoutX="110.0" layoutY="132.0" prefHeight="242.0" prefWidth="242.0" AnchorPane.bottomAnchor="375.6" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="497.6" AnchorPane.topAnchor="132.0">
-      <children>
-         <ImageView fitHeight="215.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" />
-         <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="Button" />
+   <VBox layoutX="110.0" layoutY="132.0" prefHeight="242.0" prefWidth="211.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="530.0" AnchorPane.topAnchor="100.0">
 
-      </children></VBox>
+       <ImageView fitHeight="211.0" fitWidth="242.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../../Images/pollo2.jpeg" />
+           </image>
+       </ImageView>
+         <Button fx:id="pollo_btn" mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="POLLO" />
+
+      </VBox>
 
 
-    <VBox layoutX="489.0" layoutY="132.0" prefHeight="242.0" prefWidth="242.0">
-      <children>
-         <ImageView fitHeight="215.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" />
-         <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="Button" />
-      </children></VBox>
+    <VBox layoutX="489.0" layoutY="132.0" prefHeight="242.0" prefWidth="212.0" AnchorPane.topAnchor="100.0">
 
-   <VBox layoutX="285.0" layoutY="457.0" prefHeight="242.0" prefWidth="242.0">
-      <children>
-         <ImageView fitHeight="215.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" />
-         <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="Button" />
-      </children></VBox>
+          <ImageView fitHeight="215.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@../../Images/carne.jpeg" />
+              </image>
+          </ImageView>
+         <Button fx:id="carne_btn" mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="CARNE" />
+      </VBox>
+
+   <VBox layoutX="285.0" layoutY="457.0" prefHeight="242.0" prefWidth="215.0" AnchorPane.leftAnchor="295.0" AnchorPane.topAnchor="370.0">
+
+       <ImageView fitHeight="215.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../../Images/cerdo.jpeg" />
+
+           </image>
+       </ImageView>
+         <Button fx:id="cerdo_btn" mnemonicParsing="false" prefHeight="31.0" prefWidth="242.0" text="CERDO" />
+      </VBox>
 
 
 

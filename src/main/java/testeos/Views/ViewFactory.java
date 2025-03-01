@@ -8,16 +8,33 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import testeos.Controllers.Admin.AdminContentController;
+import testeos.Controllers.AdminStorage.AdminStorageContentController;
 
 public class ViewFactory {
     private AccountType loginAccountType;
-    private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
+
+    //Admin views
+    private final ObjectProperty<AdminMenuOptions> AdminSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
 
+    //Admin Storage views
+    private final ObjectProperty<AdminStorageMenuOptions> AdminStorageSelectedMenuItem;
+    private AnchorPane carnesView;
+    private AnchorPane carnesCarneView;
+    private AnchorPane carnesPolloView;
+    private AnchorPane carnesCerdoView;
+    private AnchorPane pescadosView;
+    private AnchorPane pescados_aguadulceView;
+    private AnchorPane pescados_mariscosView;
+    private AnchorPane pescados_aguasaladaView;
+    private AnchorPane dashboardAlma;
+
+
     public ViewFactory() {
         this.loginAccountType = AccountType.ADMIN;
-        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
+        this.AdminSelectedMenuItem = new SimpleObjectProperty<>();
+        this.AdminStorageSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
     public AccountType getLoginAccountType() {
@@ -28,8 +45,12 @@ public class ViewFactory {
         this.loginAccountType = loginAccountType;
     }
 
-    public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
-        return clientSelectedMenuItem;
+    public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
+        return AdminSelectedMenuItem;
+    }
+
+    public ObjectProperty<AdminStorageMenuOptions> getAdminStorageSelectedMenuItem() {
+        return AdminStorageSelectedMenuItem;
     }
 
     public AnchorPane getDashboardView() {
@@ -43,6 +64,17 @@ public class ViewFactory {
         return dashboardView;
     }
 
+    public AnchorPane getDashboardAlmaView(){
+        if (dashboardAlma == null) {
+            try {
+                dashboardAlma = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/DashboardAlma.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return dashboardAlma;
+    }
+
     public AnchorPane getTransactionsView() {
         if (transactionsView == null) {
             try {
@@ -54,6 +86,94 @@ public class ViewFactory {
         return transactionsView;
     }
 
+    public AnchorPane getCarnesView() {
+        if (carnesView == null) {
+            try {
+                carnesView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/principalAlmaCarne.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return carnesView;
+    }
+
+    public AnchorPane getCarnesCarneView() {
+        if (carnesCarneView == null) {
+            try {
+                carnesCarneView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaCarneCarne.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return carnesCarneView;
+    }
+
+    public AnchorPane getCarnesPolloView() {
+        if (carnesPolloView == null) {
+            try {
+                carnesPolloView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaCarnePollo.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return carnesPolloView;
+    }
+
+    public AnchorPane getCarnesCerdoView() {
+        if (carnesCerdoView == null) {
+            try {
+                carnesCerdoView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaCarneCerdo.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return carnesCerdoView;
+    }
+
+    public AnchorPane getPescadosView() {
+        if (pescadosView == null) {
+            try {
+                pescadosView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/principalAlmaPescado.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pescadosView;
+    }
+
+    public AnchorPane getPescados_aguadulceView() {
+        if (pescados_aguadulceView == null) {
+            try {
+                pescados_aguadulceView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaPescadosAguaDulce.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pescados_aguadulceView;
+    }
+
+    public AnchorPane getPescados_mariscosView() {
+        if (pescados_mariscosView == null) {
+            try {
+                pescados_mariscosView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaPescadosMariscos.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pescados_mariscosView;
+    }
+
+    public AnchorPane getPescados_aguasaladaView() {
+        if (pescados_aguasaladaView == null) {
+            try {
+                pescados_aguasaladaView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaPescadosAguaSalada.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pescados_aguasaladaView;
+    }
+
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
         AdminContentController adminContentController = new AdminContentController();
@@ -63,6 +183,8 @@ public class ViewFactory {
 
     public void showAdminStorageWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/Admin.fxml"));
+        AdminStorageContentController adminStorageContentController = new AdminStorageContentController();
+        loader.setController(adminStorageContentController);
         createStage(loader);
     }
 

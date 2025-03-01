@@ -1,6 +1,6 @@
 package testeos.Views;
 
-public enum ClientMenuOptions {
+public enum AdminMenuOptions {
     MENU,
     COLA
 }

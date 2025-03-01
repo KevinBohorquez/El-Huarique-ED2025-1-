@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import testeos.Models.Model;
+import testeos.Views.AdminStorageMenuOptions;
 
 public class AdminStorageOptionsController {
 
@@ -21,12 +22,24 @@ public class AdminStorageOptionsController {
     }
 
     private void addListeners() {
-        inicio_btn.setOnAction(event -> {});
+        inicio_btn.setOnAction(event -> onMenu());
         verduras_btn.setOnAction(event -> {});
-        carnes_btn.setOnAction(event -> {});
-        pescados_btn.setOnAction(event -> {});
+        carnes_btn.setOnAction(event -> onCarnes());
+        pescados_btn.setOnAction(event -> onPescados());
         utensilios_btn.setOnAction(event -> {});
         logout_btn.setOnAction(event -> onLogout());
+    }
+
+    private void onMenu(){
+        Model.getInstance().getViewFactory().getAdminStorageSelectedMenuItem().set(AdminStorageMenuOptions.MENU);
+    }
+
+    private void onCarnes(){
+        Model.getInstance().getViewFactory().getAdminStorageSelectedMenuItem().set(AdminStorageMenuOptions.CARNES);
+    }
+
+    private void onPescados(){
+        Model.getInstance().getViewFactory().getAdminStorageSelectedMenuItem().set(AdminStorageMenuOptions.PESCADOS);
     }
 
     private void onLogout(){

@@ -4,7 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import testeos.Models.Model;
-import testeos.Views.ClientMenuOptions;
+import testeos.Views.AdminMenuOptions;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,12 +27,12 @@ public class AdminOptionsController implements Initializable {
     }
 
     private void onCola() {
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.COLA);
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.COLA);
         Model.getInstance().getDashboardController().actualizarColoresDeEstado();
     }
 
     private void onMenu() {
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.MENU);
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.MENU);
     }
 
     private void onLogout(){
