@@ -4,7 +4,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-        import javafx.scene.paint.Color;
+import javafx.scene.paint.Color;
 import testeos.Controllers.Structures.ColaClientes;
 import testeos.Controllers.Structures.Mesa;
 import testeos.Models.Model;
