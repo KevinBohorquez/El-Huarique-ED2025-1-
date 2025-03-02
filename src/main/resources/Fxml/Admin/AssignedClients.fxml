@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.AssignedClientsController">
+   <Text layoutX="317.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Clientes">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Text>
+   <Text layoutX="42.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="130.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="224.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesero">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="327.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora Llegada">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="468.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T. Esperado">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="608.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="740.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N° Mesa">
+      <font>
+         <Font name="Calibri Light" size="20.0" />
+      </font>
+   </Text>
+    <ListView fx:id="assignedClientsList" layoutX="10.0" layoutY="96.0" opacity="0.0" prefHeight="640.0" prefWidth="830.0" />
+</AnchorPane>

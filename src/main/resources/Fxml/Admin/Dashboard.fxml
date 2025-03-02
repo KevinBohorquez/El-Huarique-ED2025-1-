@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.Admin.MenuController">
-   <Text layoutX="17.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Bienvenido, administrador" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="15.0" />
+<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.Admin.MenuController">
+   <Text layoutX="28.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Bienvenido, administrador" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="18.0" />
    <Label fx:id="login_date" styleClass="date_lbl" text="Hoy 2024-11-07" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
-   <Text layoutX="47.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Mesas disponibles:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
-   <TilePane layoutX="48.0" layoutY="82.0" prefHeight="221.0" prefWidth="777.0" styleClass="account_view" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="90.0">
+   <Text layoutX="28.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Mesas disponibles:" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="62.59999942779541" />
+   <TilePane layoutX="29.0" layoutY="96.0" prefHeight="221.0" prefWidth="777.0" styleClass="account_view" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="29.399999999999977" AnchorPane.topAnchor="96.0">
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="140.0">
          <styleClass>
             <String fx:value="account" />
@@ -138,11 +138,11 @@
          </TilePane.margin>
       </AnchorPane>
    </TilePane>
-   <Text layoutX="35.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservar una mesa" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="329.490234375">
+   <Text layoutX="28.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservar una mesa" wrappingWidth="247.7197265625" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="336.626953125">
       <font>
          <Font name="Bodoni MT" size="30.0" />
       </font></Text>
-   <VBox fillWidth="false" layoutX="28.0" layoutY="362.0" prefHeight="186.0" prefWidth="391.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="431.0">
+   <VBox fillWidth="false" layoutX="28.0" layoutY="386.0" prefHeight="233.0" prefWidth="354.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="30.399999999999977" AnchorPane.rightAnchor="467.6">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Mesa elegida:" />
       <TextField fx:id="table_choosen_fld" prefHeight="33.0" prefWidth="310.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="DNI del cliente:" />
@@ -151,7 +151,7 @@
       <TextField fx:id="name_costumer_fld" prefHeight="28.0" prefWidth="311.0" />
    </VBox>
    <Label fx:id="error_lbl" layoutX="372.0" layoutY="337.0" styleClass="error_lbl" />
-   <VBox fillWidth="false" layoutX="386.0" layoutY="359.0" prefHeight="68.0" prefWidth="353.0" styleClass="new_trans_container">
+   <VBox fillWidth="false" layoutX="395.0" layoutY="386.0" prefHeight="234.0" prefWidth="354.0" styleClass="new_trans_container">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Cantidad de personas: " />
       <TextField fx:id="costumer_cant_fld" prefHeight="25.0" prefWidth="301.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Nombre del mesero:" />
