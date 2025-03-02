@@ -21,6 +21,7 @@ public class Cliente {
         this.cant = cant;
     }
 
+
     public void setCant(int cant){
         this.cant = cant;
     }
