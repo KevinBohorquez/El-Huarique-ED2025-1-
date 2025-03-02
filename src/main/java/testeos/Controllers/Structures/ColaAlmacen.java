@@ -1,6 +1,8 @@
 package testeos.Controllers.Structures;
 
+import java.awt.*;
 import java.util.Objects;
+import testeos.Controllers.AdminStorage.MenuControllerAlmacen;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -24,40 +26,27 @@ public class ColaAlmacen {
         }
     }
 
-    public void actualizarPorNumeroLote(int numeroLote){
-        Almacen actual = frente;
-        if (actual != null){
+    public void actualizarPrimeroCola(TextField actualizar_porLote_flb){
+        if(frente != null){
             try{
-                int nuevaCantidad = Integer.parseInt(txtCantidad.getText());
-                x
+                double nuevaCantidad = Double.parseDouble(actualizar_porLote_flb.getText());
+                frente.cantidad = nuevaCantidad;
 
-            }catch(NumberFormatException e) {
-                txtCantidad.setText("Número inválido");
+            } catch (NumberFormatException e) {
+                actualizar_porLote_flb.setText("Número inválido");
+                System.out.println("Error: entrada inválida.");
             }
-
+        }else {
+            System.out.println("La cola está vacía, no hay elementos para actualizar.");
         }
     }
-    public void desencolarPorLote(int numeroLote) {
+    public void desencolar() {
         if (frente == null) {
             return;
         }
-
-        if (Objects.equals(frente.numeroLote, numeroLote)) {
+        if(frente != null){
+            Almacen auxiliar = frente;
             frente = frente.siguiente;
-            return;
         }
-
-        Almacen actual = frente;
-        while (actual.siguiente != null && !Objects.equals(actual.siguiente.numeroLote, numeroLote)) {
-            actual = actual.siguiente;
-        }
-
-        if (actual.siguiente != null) {
-            actual.siguiente = actual.siguiente.siguiente;
-        }
-    }
-
-    public Almacen getFrente(){
-        return frente;
     }
 }
