@@ -20,7 +20,6 @@ public class ColaClientes {
             actual.siguiente = nuevoNodo;
         }
     }
-
     public void desencolarPorDNI(String dni) {
         if (frente == null) {
             return;
@@ -40,6 +39,7 @@ public class ColaClientes {
             actual.siguiente = actual.siguiente.siguiente;
         }
     }
+
 
     public Cliente getFrente(){
         return frente;

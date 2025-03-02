@@ -26,8 +26,34 @@ public class ColaAlmacen {
 
     public void actualizarPorNumeroLote(int numeroLote){
         Almacen actual = frente;
-        while(actual != null){
-            if()
+        if (actual != null){
+            try{
+                int nuevaCantidad = Integer.parseInt(txtCantidad.getText());
+                x
+
+            }catch(NumberFormatException e) {
+                txtCantidad.setText("Número inválido");
+            }
+
+        }
+    }
+    public void desencolarPorLote(int numeroLote) {
+        if (frente == null) {
+            return;
+        }
+
+        if (Objects.equals(frente.numeroLote, numeroLote)) {
+            frente = frente.siguiente;
+            return;
+        }
+
+        Almacen actual = frente;
+        while (actual.siguiente != null && !Objects.equals(actual.siguiente.numeroLote, numeroLote)) {
+            actual = actual.siguiente;
+        }
+
+        if (actual.siguiente != null) {
+            actual.siguiente = actual.siguiente.siguiente;
         }
     }
 
