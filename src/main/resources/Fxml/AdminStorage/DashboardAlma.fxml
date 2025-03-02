@@ -25,18 +25,18 @@
 
     <VBox fillWidth="false" layoutX="29.0" layoutY="126.0" prefHeight="434.0" prefWidth="356.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="66.39999999999998" AnchorPane.rightAnchor="465.0">
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Categoria Producto" />
-        <TextField fx:id="product_pro_fld" prefHeight="20.0" prefWidth="328.0" />
+        <TextField fx:id="input_categoria" prefHeight="20.0" prefWidth="328.0" />
 
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Producto" />
-        <TextField fx:id="category_pro_fld" prefHeight="20.0" prefWidth="328.0" />
+        <TextField fx:id="input_subCategoria" prefHeight="20.0" prefWidth="328.0" />
 
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Cantidad" />
-        <TextField fx:id="table_choosen_fld" prefHeight="20.0" prefWidth="328.0" />
+        <TextField fx:id="input_Cantidad" prefHeight="20.0" prefWidth="328.0" />
 
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Numero de Lote" />
-        <TextField fx:id="num_customer_fld" prefHeight="20.0" prefWidth="328.0" />
+        <TextField fx:id="input_numLote" prefHeight="20.0" prefWidth="328.0" />
 
-        <Button id="table_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="311.0" text="Almacenar" />
+        <Button fx:id="boton_almacenar" onAction="#agregarAlmacen" mnemonicParsing="false" prefHeight="34.0" prefWidth="311.0" text="Almacenar" />
     </VBox>
        <ImageView fitHeight="310.0" fitWidth="310.0" layoutX="461.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
            <image>

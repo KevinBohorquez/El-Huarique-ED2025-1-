@@ -25,8 +25,20 @@ public class NodoAlmacen {
         return lotes.poll(); // Remueve el lote más antiguo (FIFO)
     }
 
-    public void mostrarEstructura(String prefijo) {
+    public ArrayList< Queue<ColaAlmacen> > mostrarDatos( String categoria ) {
+        ColaAlmacen[] cola =  new ColaAlmacen[hijos.size()];
+        ArrayList< Queue<ColaAlmacen> > colas = new ArrayList<>();
 
+        if (this.nombre.equalsIgnoreCase(categoria)) {
+            //recorrer cada subcategoria
+           for (NodoAlmacen hijo : hijos) {
+               colas.add(hijo.lotes);
+           }
+           return colas;
+        } else {
+            return null;
+        }
     }
+
 }
 
