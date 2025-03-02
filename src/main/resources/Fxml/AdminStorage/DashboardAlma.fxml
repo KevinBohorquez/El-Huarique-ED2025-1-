@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.AdminStorage.MenuControllerAlmacen">
 
     <!-- Encabezado -->
     <Text layoutX="17.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Bienvenido, administrador almacén" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="15.0" />
@@ -29,9 +34,9 @@
         <TextField fx:id="table_choosen_fld" prefHeight="20.0" prefWidth="328.0" />
 
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Numero de Lote" />
-        <TextField fx:id="dni_costumer_fld" prefHeight="20.0" prefWidth="328.0" />
+        <TextField fx:id="num_customer_fld" prefHeight="20.0" prefWidth="328.0" />
 
-        <Button fx:id="table_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="311.0" text="Almacenar" />
+        <Button id="table_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="311.0" text="Almacenar" />
     </VBox>
        <ImageView fitHeight="310.0" fitWidth="310.0" layoutX="461.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
            <image>
