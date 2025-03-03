@@ -20,7 +20,7 @@ public class Model {
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
 
-    public final ObservableList<QueueClient> allClients;
+    //public final ObservableList<QueueClient> allClients;
     public final ObservableList<Almacen> allProductsP1;
     public final ObservableList<Almacen> allProductsP2;
     public final ObservableList<Almacen> allProductsP3;
@@ -30,7 +30,7 @@ public class Model {
     public final ObservableList<Almacen> allProductsC3;
 
     public final ObservableList<ListClient> allClients;
-    private MenuController menuController;
+    //private MenuController menuController;
     private final Client client;
     private boolean adminStorageLoginSuccessFlag;
     private boolean adminLoginSuccessFlag;

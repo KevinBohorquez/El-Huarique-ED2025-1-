@@ -9,8 +9,8 @@ import testeos.Views.AdminStorageMenuOptions;
 public class AdminStorageOptionsController {
 
     @FXML
-    public Button utensilios_btn;
-    public Button verduras_btn;
+    //public Button utensilios_btn;
+    //public Button verduras_btn;
     public Button carnes_btn;
     public Button pescados_btn;
     public Button inicio_btn;
@@ -23,10 +23,10 @@ public class AdminStorageOptionsController {
 
     private void addListeners() {
         inicio_btn.setOnAction(event -> onMenu());
-        verduras_btn.setOnAction(event -> {});
+        //verduras_btn.setOnAction(event -> {});
         carnes_btn.setOnAction(event -> onCarnes());
         pescados_btn.setOnAction(event -> onPescados());
-        utensilios_btn.setOnAction(event -> {});
+        //utensilios_btn.setOnAction(event -> {});
         logout_btn.setOnAction(event -> onLogout());
     }
 
