@@ -34,7 +34,7 @@ public class Model {
     private boolean adminStorageLoginSuccessFlag;
     private boolean adminLoginSuccessFlag;
 
-    //private MenuController menuController;
+    private MenuController menuController;
     private MenuControllerAlmacen menuControllerAlmacen;
     private AlmacenController almacenController;
 
