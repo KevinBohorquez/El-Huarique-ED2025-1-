@@ -21,24 +21,25 @@ public class ColaClientes {
         }
     }
 
-    public void desencolarPorDNI(String dni) {
-        if (frente == null) {
-            return;
-        }
+    public Cliente existeClienteEnMesa(int mesaId) {
+        if (frente == null) return null;
 
-        if (Objects.equals(frente.DNI, dni)) {
+        if (frente.numMesa == mesaId) {
+            Cliente clienteEncontrado = frente;
             frente = frente.siguiente;
-            return;
+            return clienteEncontrado;
         }
 
         Cliente actual = frente;
-        while (actual.siguiente != null && !Objects.equals(actual.siguiente.DNI, dni)) {
+        while (actual.siguiente != null) {
+            if (actual.siguiente.numMesa == mesaId) {
+                Cliente clienteEncontrado = actual.siguiente;
+                actual.siguiente = actual.siguiente.siguiente;
+                return clienteEncontrado;
+            }
             actual = actual.siguiente;
         }
-
-        if (actual.siguiente != null) {
-            actual.siguiente = actual.siguiente.siguiente;
-        }
+        return null;
     }
 
     public Cliente getFrente(){

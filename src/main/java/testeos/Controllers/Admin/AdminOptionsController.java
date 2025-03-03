@@ -14,6 +14,7 @@ public class AdminOptionsController implements Initializable {
     public Button queue_btn;
     public Button logout_btn;
     public Button report_btn;
+    public Button clientes_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -24,6 +25,7 @@ public class AdminOptionsController implements Initializable {
         menu_btn.setOnAction(event -> onMenu());
         queue_btn.setOnAction(event -> onCola());
         logout_btn.setOnAction(event -> onLogout());
+        clientes_btn.setOnAction(event -> onClientes());
     }
 
     private void onCola() {
@@ -33,6 +35,10 @@ public class AdminOptionsController implements Initializable {
 
     private void onMenu() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.MENU);
+    }
+
+    private void onClientes(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CLIENTES_ACTUALES);
     }
 
     private void onLogout(){

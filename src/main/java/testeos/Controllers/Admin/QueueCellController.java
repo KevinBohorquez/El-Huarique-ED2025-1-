@@ -21,7 +21,6 @@ public class QueueCellController implements Initializable {
     public Label tiempo_esperando_lbl;
     public Label mesa_asignada_lbl;
     public Label costumer_cant_lbl;
-    public Button eliminar_btn;
 
     private final QueueClient qclient;
 
@@ -38,11 +37,6 @@ public class QueueCellController implements Initializable {
         tiempo_esperando_lbl.setText(getTimeDifference(hora_asignada_lbl.getText()));
         mesa_asignada_lbl.textProperty().bind(qclient.mesa_asignadaProperty());
         costumer_cant_lbl.textProperty().bind(qclient.costumer_cantProperty());
-        eliminar_btn.setOnAction(event -> {
-            String dniCliente = qclient.dNIProperty().get();
-            String numMesa = qclient.mesa_asignadaProperty().get();
-            Model.getInstance().getDashboardController().eliminarCliente(dniCliente, numMesa);
-        });
 
     }
     public static String getTimeDifference(String inputTime) {

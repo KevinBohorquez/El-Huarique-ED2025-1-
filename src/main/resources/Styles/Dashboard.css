@@ -132,6 +132,23 @@
     -fx-font-size: 1.3em;
 }
 
+.new_trans_container ComboBox {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-padding: 5px;
+    -fx-background-color: #f9f9f9;
+}
+
+.new_trans_container ComboBox .list-cell {
+    -fx-padding: 5px 0 5px 10px;
+}
+
+.new_trans_container ComboBox .list-cell:hover {
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
 .new_trans_container TextField {
     -fx-pref-height: 40;
     -fx-background-color: #FFFFFF;

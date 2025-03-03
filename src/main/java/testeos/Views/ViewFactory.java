@@ -17,6 +17,7 @@ public class ViewFactory {
     private final ObjectProperty<AdminMenuOptions> AdminSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
+    private AnchorPane clientesActualesView;
 
     //Admin Storage views
     private final ObjectProperty<AdminStorageMenuOptions> AdminStorageSelectedMenuItem;
@@ -64,6 +65,17 @@ public class ViewFactory {
         return dashboardView;
     }
 
+    public AnchorPane getClientesActualesView() {
+        if (clientesActualesView == null) {
+            try {
+                clientesActualesView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientesActuales.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return clientesActualesView;
+    }
+
     public AnchorPane getDashboardAlmaView(){
         if (dashboardAlma == null) {
             try {
@@ -78,7 +90,7 @@ public class ViewFactory {
     public AnchorPane getTransactionsView() {
         if (transactionsView == null) {
             try {
-                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Transactions.fxml")).load();
+                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientesCola.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }

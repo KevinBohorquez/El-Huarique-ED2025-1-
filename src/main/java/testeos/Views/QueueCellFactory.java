@@ -5,7 +5,7 @@ import javafx.scene.control.ListCell;
 import testeos.Controllers.Admin.QueueCellController;
 import testeos.Models.QueueClient;
 
-public class QueueCellFactory extends ListCell<QueueClient> {
+public class QueueCellFactory extends ListCell<QueueClient>{
     @Override
     protected void updateItem(QueueClient qclient, boolean empty) {
         super.updateItem(qclient, empty);
@@ -13,7 +13,7 @@ public class QueueCellFactory extends ListCell<QueueClient> {
             setText(null);
             setGraphic(null);
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/TransactionCell.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientesColaCell.fxml"));
             QueueCellController controller = new QueueCellController(qclient);
             loader.setController(controller);
             setText(null);

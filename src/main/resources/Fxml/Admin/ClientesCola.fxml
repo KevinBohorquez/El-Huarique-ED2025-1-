@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="transactions_container" stylesheets="@../../Styles/Transactions.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.Admin.QueueController">
-    <Text layoutX="329.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cola de Clientes" AnchorPane.leftAnchor="329.0" AnchorPane.topAnchor="19.626953125" />
+    <Text layoutX="329.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cola de Espera" AnchorPane.leftAnchor="329.0" AnchorPane.topAnchor="19.626953125" />
    <Text layoutX="44.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Cliente" />
    <Text layoutX="137.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="DNI" />
    <Text layoutX="203.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Mesero" />

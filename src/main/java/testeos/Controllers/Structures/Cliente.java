@@ -20,10 +20,5 @@ public class Cliente {
         this.numMesa = numMesa;
         this.cant = cant;
     }
-
-    public void setCant(int cant){
-        this.cant = cant;
-    }
-
 }
 

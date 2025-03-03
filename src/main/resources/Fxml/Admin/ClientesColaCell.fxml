@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="60.0" prefWidth="750.0" styleClass="cell_container" stylesheets="@../../Styles/TransactionCell.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="60.0" prefWidth="750.0" styleClass="cell_container" stylesheets="@../../Styles/TransactionCell.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <Label fx:id="costumer_lbl" layoutX="33.0" layoutY="22.0" text="Panchito" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="33.0" />
     <Label fx:id="DNI_lbl" layoutX="114.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="71426213" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="114.0" />
     <Line endY="20.0" layoutX="307.0" layoutY="18.0" AnchorPane.bottomAnchor="21.5" AnchorPane.leftAnchor="300.0" />
     <Label fx:id="tiempo_esperando_lbl" layoutX="375.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="0 horas 0 minutos" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="375.0" />
     <Label fx:id="mesa_asignada_lbl" layoutX="602.0" layoutY="17.0" styleClass="trans_amount_lbl" text="1" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="602.0" />
-   <Label fx:id="waiter_lbl" layoutX="206.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="Panfilo" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="206.0" />
+   <Label fx:id="waiter_lbl" layoutX="189.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="Panfilo" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="189.0" />
    <Label fx:id="hora_asignada_lbl" layoutX="292.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="20:20" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="292.0" />
-   <Button fx:id="eliminar_btn" layoutX="661.0" layoutY="18.0" mnemonicParsing="false" text="Eliminar" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="661.0">
-      <graphic>
-         <FontAwesomeIconView glyphName="TRASH" size="16" />
-      </graphic>
-   </Button>
    <Label fx:id="costumer_cant_lbl" layoutX="535.0" layoutY="22.0" styleClass="trans_pAddress_lbl" text="2" />
 </AnchorPane>
