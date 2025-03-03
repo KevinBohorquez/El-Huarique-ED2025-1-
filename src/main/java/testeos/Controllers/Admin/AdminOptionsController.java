@@ -11,10 +11,10 @@ import java.util.ResourceBundle;
 
 public class AdminOptionsController implements Initializable {
     public Button menu_btn;
-    public Button queue_btn1;
     public Button queue_btn;
     public Button logout_btn;
     public Button report_btn;
+    public Button clientes_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -23,14 +23,9 @@ public class AdminOptionsController implements Initializable {
 
     private void addListeners() {
         menu_btn.setOnAction(event -> onMenu());
-        queue_btn1.setOnAction(event -> onCola());
-        queue_btn.setOnAction(event -> onLista());
+        queue_btn.setOnAction(event -> onCola());
         logout_btn.setOnAction(event -> onLogout());
-    }
-
-    private void onLista() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.LISTA);
-        Model.getInstance().getDashboardController().actualizarColoresDeEstado();
+        clientes_btn.setOnAction(event -> onClientes());
     }
 
     private void onCola() {
@@ -40,6 +35,10 @@ public class AdminOptionsController implements Initializable {
 
     private void onMenu() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.MENU);
+    }
+
+    private void onClientes(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CLIENTES_ACTUALES);
     }
 
     private void onLogout(){

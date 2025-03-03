@@ -8,8 +8,9 @@ import testeos.Controllers.AdminStorage.AlmacenData;
 import testeos.Controllers.AdminStorage.MenuControllerAlmacen;
 import testeos.Controllers.Structures.Almacen;
 import testeos.Controllers.Structures.Cliente;
+import testeos.Controllers.Structures.ColaClientes;
 import testeos.Controllers.Structures.ColaAlmacen;
-import testeos.Controllers.Structures.ListaClientes;
+import testeos.Controllers.Structures.LDE_Clientes;
 import testeos.Views.ViewFactory;
 import java.sql.ResultSet;
 
@@ -18,39 +19,34 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
-
-    //public final ObservableList<QueueClient> allClients;
+    public final ObservableList<QueueClient> QueueClients;
+    public final ObservableList<ActualClient> ActualClients;
     public final ObservableList<Almacen> allProductsP1;
     public final ObservableList<Almacen> allProductsP2;
     public final ObservableList<Almacen> allProductsP3;
-
     public final ObservableList<Almacen> allProductsC1;
     public final ObservableList<Almacen> allProductsC2;
     public final ObservableList<Almacen> allProductsC3;
-
-    public final ObservableList<ListClient> allClients;
+    //public final ObservableList<ActualClient> allClients;
     //private MenuController menuController;
+    private MenuController menuController;
     private final Client client;
     private boolean adminStorageLoginSuccessFlag;
     private boolean adminLoginSuccessFlag;
-
-    private MenuController menuController;
     private MenuControllerAlmacen menuControllerAlmacen;
     private AlmacenController almacenController;
 
     private Model() {
         this.viewFactory = new ViewFactory();
         this.databaseDriver = new DatabaseDriver();
-
-        this.allClients = FXCollections.observableArrayList();
+        this.QueueClients = FXCollections.observableArrayList();
+        this.ActualClients = FXCollections.observableArrayList();
         this.allProductsP1 = FXCollections.observableArrayList();
         this.allProductsP2 = FXCollections.observableArrayList();
         this.allProductsP3 = FXCollections.observableArrayList();
-
         this.allProductsC1 = FXCollections.observableArrayList();
         this.allProductsC2 = FXCollections.observableArrayList();
         this.allProductsC3 = FXCollections.observableArrayList();
-
         this.adminStorageLoginSuccessFlag = false;
         this.adminLoginSuccessFlag = false;
         this.client = new Client("");
@@ -75,9 +71,9 @@ public class Model {
         return menuController;
     }
 
-    private void prepareClients(ObservableList<ListClient> qclient, MenuController dashboard, int limit) {
-        ListaClientes listaClientes = dashboard.getCola();
-        Cliente actual = listaClientes.getFrente();
+    private void prepareQueueClients(ObservableList<QueueClient> qclient, MenuController dashboard, int limit) {
+        ColaClientes colaClientes = dashboard.getCola();
+        Cliente actual = colaClientes.getFrente();
         int count = 0;
         while (actual != null && count < limit) {
             String nombre = actual.nombre;
@@ -87,20 +83,59 @@ public class Model {
             String tiempoEsperando = actual.hora_asignacion;
             String numMesa = String.valueOf(actual.numMesa);
             String costumer_cant = String.valueOf(actual.cant);
-            qclient.add(new ListClient(nombre, dni, mesero, horaAsignacion, tiempoEsperando, numMesa, costumer_cant));
+            qclient.add(new QueueClient(nombre, dni, mesero, horaAsignacion, tiempoEsperando, numMesa, costumer_cant));
             actual = actual.siguiente;
             count++;
         }
     }
 
-    public ObservableList<ListClient> getAllTransactions() {
-        return allClients;
+    private void prepareActualClients(ObservableList<ActualClient> Aclient, MenuController dashboard, int limit) {
+        LDE_Clientes actualClientes = dashboard.getActual();
+        LDE_Clientes.Nodo actual = actualClientes.lista; // Obtiene el primer nodo
+
+        if (actual == null) {
+            return;
+        }
+
+        int count = 0;
+        while (actual != null && count < limit) {
+            Cliente cliente = actual.cliente;;
+
+            if (cliente != null) {
+                String nombre = cliente.nombre;
+                String dni = cliente.DNI;
+                String mesero = cliente.mesero;
+                String numMesa = String.valueOf(cliente.numMesa);
+                String costumer_cant = String.valueOf(cliente.cant);
+
+                Aclient.add(new ActualClient(nombre, dni, mesero, numMesa, costumer_cant));
+            }
+            actual = actual.sgte;
+            count++;
+        }
     }
 
-    public void setAllTransactions() {
+    public ObservableList<QueueClient> getAllQueueClients() {
+        return QueueClients;
+    }
+
+    public ObservableList<ActualClient> getAllActualClients() {
+        return ActualClients;
+    }
+
+    public void setAllQueueClients() {
         if (menuController != null) {
-            allClients.clear();
-            prepareClients(this.allClients, menuController, 30);
+            QueueClients.clear();
+            prepareQueueClients(this.QueueClients, menuController, 30);
+        } else {
+            System.out.println("Error: DashboardController no está inicializado.");
+        }
+    }
+
+    public void setAllActualClients() {
+        if (menuController != null) {
+            ActualClients.clear();
+            prepareActualClients(this.ActualClients, menuController, 30);
         } else {
             System.out.println("Error: DashboardController no está inicializado.");
         }

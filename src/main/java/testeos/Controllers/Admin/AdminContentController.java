@@ -16,8 +16,8 @@ public class AdminContentController implements Initializable {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observable, old_val, new_val) -> {
             switch (new_val) {
                 case MENU -> client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
-                case LISTA -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
-                case COLA -> client_parent.setCenter(Model.getInstance().getViewFactory().getAssignedView());
+                case CLIENTES_ACTUALES -> client_parent.setCenter(Model.getInstance().getViewFactory().getClientesActualesView());
+                default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         });
     }

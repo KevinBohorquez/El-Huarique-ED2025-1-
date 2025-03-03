@@ -3,5 +3,5 @@ package testeos.Views;
 public enum AdminMenuOptions {
     MENU,
     COLA,
-    LISTA
+    CLIENTES_ACTUALES
 }
