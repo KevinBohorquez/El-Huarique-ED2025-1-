@@ -69,7 +69,7 @@ public class ViewFactory {
     }
 
     public Parent getAssignedView() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Waiting.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Assigned.fxml"));
         try {
             return loader.load();
         } catch (IOException e) {

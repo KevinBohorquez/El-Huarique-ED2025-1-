@@ -23,24 +23,24 @@ public class ListCellController implements Initializable {
     public Label costumer_cant_lbl;
     public Button eliminar_btn;
 
-    private final ListClient qclient;
+    private final ListClient lclient;
 
-    public ListCellController(ListClient qclient) {
-        this.qclient = qclient;
+    public ListCellController(ListClient lclient) {
+        this.lclient = lclient;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        costumer_lbl.textProperty().bind(qclient.costumerProperty());
-        DNI_lbl.textProperty().bind(qclient.dNIProperty());
-        waiter_lbl.textProperty().bind(qclient.waiterProperty());
-        hora_asignada_lbl.textProperty().bind(qclient.hora_asignadaProperty());
+        costumer_lbl.textProperty().bind(lclient.costumerProperty());
+        DNI_lbl.textProperty().bind(lclient.dNIProperty());
+        waiter_lbl.textProperty().bind(lclient.waiterProperty());
+        hora_asignada_lbl.textProperty().bind(lclient.hora_asignadaProperty());
         tiempo_esperando_lbl.setText(getTimeDifference(hora_asignada_lbl.getText()));
-        mesa_asignada_lbl.textProperty().bind(qclient.mesa_asignadaProperty());
-        costumer_cant_lbl.textProperty().bind(qclient.costumer_cantProperty());
+        mesa_asignada_lbl.textProperty().bind(lclient.mesa_asignadaProperty());
+        costumer_cant_lbl.textProperty().bind(lclient.costumer_cantProperty());
         eliminar_btn.setOnAction(event -> {
-            String dniCliente = qclient.dNIProperty().get();
-            String numMesa = qclient.mesa_asignadaProperty().get();
+            String dniCliente = lclient.dNIProperty().get();
+            String numMesa = lclient.mesa_asignadaProperty().get();
             Model.getInstance().getDashboardController().eliminarCliente(dniCliente, numMesa);
         });
 

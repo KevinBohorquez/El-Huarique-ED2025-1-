@@ -7,14 +7,14 @@ import testeos.Models.ListClient;
 
 public class ListCellFactory extends ListCell<ListClient> {
     @Override
-    protected void updateItem(ListClient qclient, boolean empty) {
-        super.updateItem(qclient, empty);
+    protected void updateItem(ListClient lclient, boolean empty) {
+        super.updateItem(lclient, empty);
         if(empty){
             setText(null);
             setGraphic(null);
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/TransactionCell.fxml"));
-            ListCellController controller = new ListCellController(qclient);
+            ListCellController controller = new ListCellController(lclient);
             loader.setController(controller);
             setText(null);
             try {

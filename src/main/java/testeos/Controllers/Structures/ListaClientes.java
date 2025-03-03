@@ -1,4 +1,5 @@
 package testeos.Controllers.Structures;
+
 import java.util.Objects;
 
 public class ListaClientes {
