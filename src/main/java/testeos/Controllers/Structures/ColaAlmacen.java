@@ -40,13 +40,29 @@ public class ColaAlmacen {
             System.out.println("La cola está vacía, no hay elementos para actualizar.");
         }
     }
-    public void desencolar() {
+
+    public Almacen desencolar() {
         if (frente == null) {
-            return;
+            return  null;
         }
-        if(frente != null){
-            Almacen auxiliar = frente;
-            frente = frente.siguiente;
-        }
+        Almacen auxiliar = frente;
+        frente = frente.siguiente;
+        return auxiliar;
     }
+    public Almacen tope(){
+        return frente;
+    }
+
+    public ColaAlmacen clonar() {
+        ColaAlmacen copia = new ColaAlmacen();
+        Almacen actual = frente;
+
+        while (actual != null) {
+            copia.EncolarAlmacen(actual.tipo, actual.cantidad, actual.numeroLote);
+            actual = actual.siguiente;
+        }
+
+        return copia;
+    }
+
 }

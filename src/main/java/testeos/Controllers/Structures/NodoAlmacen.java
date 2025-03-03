@@ -25,19 +25,27 @@ public class NodoAlmacen {
         return lotes.poll(); // Remueve el lote más antiguo (FIFO)
     }
 
-    public ArrayList< Queue<ColaAlmacen> > mostrarDatos( String categoria ) {
-        ColaAlmacen[] cola =  new ColaAlmacen[hijos.size()];
-        ArrayList< Queue<ColaAlmacen> > colas = new ArrayList<>();
+    public ColaAlmacen mostrarDatos( String categoria, String subCategoria ) {
+        ColaAlmacen  colas = new ColaAlmacen();
 
-        if (this.nombre.equalsIgnoreCase(categoria)) {
-            //recorrer cada subcategoria
-           for (NodoAlmacen hijo : hijos) {
-               colas.add(hijo.lotes);
-           }
-           return colas;
-        } else {
-            return null;
+
+        for (NodoAlmacen hijo: hijos) {
+            if(hijo.nombre.equals(categoria)) {
+                System.out.println("categoria encontrada");
+                System.out.println(hijo.lotes);
+                
+                for (ColaAlmacen lote: hijo.lotes) {
+                    if (lote.tope().tipo.equals(subCategoria)) {
+                        System.out.println("subcategoria encontrada");
+                        return lote;
+                    }
+                }
+
+            }
         }
+
+       return colas;
+
     }
 
 }

@@ -3,7 +3,12 @@ package testeos.Models;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import testeos.Controllers.Admin.MenuController;
+import testeos.Controllers.AdminStorage.AlmacenController;
+import testeos.Controllers.AdminStorage.AlmacenData;
+import testeos.Controllers.AdminStorage.MenuControllerAlmacen;
+import testeos.Controllers.Structures.Almacen;
 import testeos.Controllers.Structures.Cliente;
+import testeos.Controllers.Structures.ColaAlmacen;
 import testeos.Controllers.Structures.ColaClientes;
 import testeos.Views.ViewFactory;
 import java.sql.ResultSet;
@@ -13,16 +18,37 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
+
     public final ObservableList<QueueClient> allClients;
-    private MenuController menuController;
+    public final ObservableList<Almacen> allProductsP1;
+    public final ObservableList<Almacen> allProductsP2;
+    public final ObservableList<Almacen> allProductsP3;
+
+    public final ObservableList<Almacen> allProductsC1;
+    public final ObservableList<Almacen> allProductsC2;
+    public final ObservableList<Almacen> allProductsC3;
+
     private final Client client;
     private boolean adminStorageLoginSuccessFlag;
     private boolean adminLoginSuccessFlag;
 
+    private MenuController menuController;
+    private MenuControllerAlmacen menuControllerAlmacen;
+    private AlmacenController almacenController;
+
     private Model() {
         this.viewFactory = new ViewFactory();
         this.databaseDriver = new DatabaseDriver();
+
         this.allClients = FXCollections.observableArrayList();
+        this.allProductsP1 = FXCollections.observableArrayList();
+        this.allProductsP2 = FXCollections.observableArrayList();
+        this.allProductsP3 = FXCollections.observableArrayList();
+
+        this.allProductsC1 = FXCollections.observableArrayList();
+        this.allProductsC2 = FXCollections.observableArrayList();
+        this.allProductsC3 = FXCollections.observableArrayList();
+
         this.adminStorageLoginSuccessFlag = false;
         this.adminLoginSuccessFlag = false;
         this.client = new Client("");
@@ -121,5 +147,92 @@ public class Model {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    /*
+    * Almacen method section
+    * */
+    private void prepareAlmacen(ObservableList<Almacen> qalmacen, MenuControllerAlmacen dashboard, int limit, String subcat) {
+
+        ColaAlmacen colaProductos = dashboard.getCola( subcat );
+
+
+        Almacen actual = colaProductos.tope();
+
+        int count = 0;
+        while (actual != null && count < limit) {
+            String tipo = actual.tipo;
+            Double cantidad = actual.cantidad;
+            int numLote = actual.numeroLote;
+
+            qalmacen.add( new Almacen(tipo, cantidad, numLote) );
+            actual = actual.siguiente;
+            count++;
+        }
+    }
+
+    public ObservableList<Almacen> getAllProducts(String subcat) {
+
+        switch (subcat){
+            case "carne" -> {
+                return allProductsC1;
+            }
+            case "pollo" -> {
+                return allProductsC2;
+            }
+            case "cerdo" -> {
+                return allProductsC3;
+            }
+            case "salada"->{
+                return allProductsP1;
+            }
+            case "dulce"->{
+                return allProductsP2;
+            }
+            case "marisco"->{
+                return allProductsP3;
+            }
+        }
+
+        return null;
+    }
+
+    public void setAllProducts(String subCategoria) {
+
+
+        if (menuControllerAlmacen != null) {
+            switch (subCategoria){
+                case "carne" -> {
+                    allProductsC1.clear();
+                    prepareAlmacen(this.allProductsC1, menuControllerAlmacen, 10, subCategoria);
+                }
+                case "pollo" -> {
+                    allProductsC2.clear();
+                    prepareAlmacen(this.allProductsC2, menuControllerAlmacen, 10, subCategoria);
+                }
+                case "cerdo" -> {
+                    allProductsC3.clear();
+                    prepareAlmacen(this.allProductsC3, menuControllerAlmacen, 10, subCategoria);
+                }
+                case "salada"->{
+                    allProductsP1.clear();
+                    prepareAlmacen(this.allProductsP1, menuControllerAlmacen, 10, subCategoria);
+                }
+                case "dulce"->{
+                    allProductsP2.clear();
+                    prepareAlmacen(this.allProductsP2, menuControllerAlmacen, 10, subCategoria);
+                }
+                case "mariscos"->{
+                    allProductsP3.clear();
+                    prepareAlmacen(this.allProductsP3, menuControllerAlmacen, 10, subCategoria);
+                }
+            }
+
+        } else {
+            System.out.println("Error: menuControllerAlmacen no está inicializado.");
+        }
+    }
+    public void setMenuAlmacenController(MenuControllerAlmacen menuControllerAlmacen) {
+        this.menuControllerAlmacen = menuControllerAlmacen;
     }
 }

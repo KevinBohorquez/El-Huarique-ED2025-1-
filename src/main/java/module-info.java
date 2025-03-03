@@ -16,4 +16,6 @@ module com.example.banquitofeliz {
     exports testeos.Models;
     exports testeos.Views;
     exports testeos.Controllers.Structures;
+    exports testeos.Controllers.AdminStorage;
+    exports testeos.Controllers.AdminStorage.SubCategorias;
 }

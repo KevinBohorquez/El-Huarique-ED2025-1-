@@ -9,6 +9,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import testeos.Controllers.Admin.AdminContentController;
 import testeos.Controllers.AdminStorage.AdminStorageContentController;
+import testeos.Controllers.AdminStorage.SubCategorias.Pescados_AS_Controller;
+
+import java.io.IOException;
 
 public class ViewFactory {
     private AccountType loginAccountType;
@@ -163,10 +166,33 @@ public class ViewFactory {
         return pescados_mariscosView;
     }
 
+    public Pescados_AS_Controller getPescadosASController() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaPescadosAguaSalada.fxml"));
+        try {
+            loader.load();
+            return loader.getController(); // Retorna el controlador asociado al FXML
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
     public AnchorPane getPescados_aguasaladaView() {
         if (pescados_aguasaladaView == null) {
             try {
                 pescados_aguasaladaView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/adminAlmaPescadosAguaSalada.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pescados_aguasaladaView;
+    }
+
+    public AnchorPane getPescados_aguasalada2View() {
+        if (pescados_aguasaladaView == null) {
+            try {
+                pescados_aguasaladaView = new FXMLLoader(getClass().getResource("/Fxml/AdminStorage/SubCategorias/almacenPS.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }

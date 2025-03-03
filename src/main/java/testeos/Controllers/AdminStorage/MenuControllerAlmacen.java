@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class MenuControllerAlmacen {
+public class MenuControllerAlmacen implements Initializable {
 
     @FXML
     public TextField input_categoria;
@@ -28,10 +28,18 @@ public class MenuControllerAlmacen {
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Model.getInstance().setMenuAlmacenController(this);
     }
     public MenuControllerAlmacen(){
-        nodoAlmacen = new NodoAlmacen("AlmacenHuarique");
+
+    }
+
+
+    private void limpiar(){
+        input_categoria.setText("");
+        input_subCategoria.setText("");
+        input_Cantidad.setText("") ;
+        input_numLote.setText("") ;
     }
 
     public void agregarAlmacen(){
@@ -48,14 +56,18 @@ public class MenuControllerAlmacen {
                 switch(producto) {
                     case "pollo" -> {
                         almacenData.getPollo().EncolarAlmacen(producto, cantidad, lote);
+                        Model.getInstance().setAllProducts("pollo");
+                        limpiar();
                     }
                     case "res" -> {
                         almacenData.getRes().EncolarAlmacen(producto, cantidad, lote);
-
+                        limpiar();
+                        Model.getInstance().setAllProducts("res");
                     }
                     case "cerdo" -> {
                         almacenData.getCerdo().EncolarAlmacen(producto, cantidad, lote);
-
+                        limpiar();
+                        Model.getInstance().setAllProducts("cerdo");
                     }
                 }
             }
@@ -63,20 +75,50 @@ public class MenuControllerAlmacen {
                 switch (producto) {
                     case "dulce" -> {
                         almacenData.getDulce().EncolarAlmacen(producto, cantidad, lote);
-
+                        limpiar();
+                        Model.getInstance().setAllProducts("dulce");
                     }
                     case "salada" -> {
                         almacenData.getSal().EncolarAlmacen(producto, cantidad, lote);
-
+                        limpiar();
+                        Model.getInstance().setAllProducts("salada");
                     }
                     case "mariscos" -> {
                         almacenData.getMarisco().EncolarAlmacen(producto, cantidad, lote);
+                        limpiar();
+                        Model.getInstance().setAllProducts("mariscos");
                     }
                 }
 
             }
             default -> System.out.println("Error, categoría invalida");
         }
+
+
     }
 
+    public ColaAlmacen getCola( String subCat){
+        switch (subCat){
+            case "carne" -> {
+                return AlmacenData.getInstance().getRes();
+            }
+            case "pollo" -> {
+                return AlmacenData.getInstance().getPollo();
+            }
+            case "cerdo" -> {
+                return AlmacenData.getInstance().getCerdo();
+            }
+            case "salada"->{
+                return AlmacenData.getInstance().getSal();
+            }
+            case "dulce"->{
+                return AlmacenData.getInstance().getDulce();
+            }
+            case "mariscos"->{
+                return AlmacenData.getInstance().getMarisco();
+            }
+        }
+
+        return null;
+    }
 }

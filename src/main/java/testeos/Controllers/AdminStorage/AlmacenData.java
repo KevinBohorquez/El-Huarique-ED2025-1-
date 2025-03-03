@@ -44,6 +44,10 @@ public class AlmacenData {
     public ColaAlmacen getSal() {
         return sal;
     }
+    public void setSal(ColaAlmacen sal) {
+        this.sal = sal;
+    }
+
     public ColaAlmacen getDulce() {
         return dulce;
     }

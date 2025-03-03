@@ -1,24 +1,30 @@
 package testeos.Controllers.AdminStorage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import testeos.Controllers.AdminStorage.SubCategorias.Pescados_AS_Controller;
+import testeos.Controllers.Structures.Almacen;
 import testeos.Controllers.Structures.ColaAlmacen;
 import testeos.Controllers.Structures.NodoAlmacen;
 import testeos.Models.Model;
 import testeos.Views.AdminStorageMenuOptions;
+import testeos.Views.ViewFactory;
+
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Queue;
 import java.util.ResourceBundle;
 
 public class PescadosController implements Initializable {
 
+
     public Button aguadulce_btn;
     public Button mariscos_btn;
     public Button aguasalada_btn;
-    public ListView listView_pescadosAD;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,23 +46,9 @@ public class PescadosController implements Initializable {
     }
 
     private void onAguasalada(){
-        Model.getInstance().getViewFactory().getAdminStorageSelectedMenuItem().set(AdminStorageMenuOptions.PESCADOS_AGUASALADA);
+        Model.getInstance().getViewFactory().getAdminStorageSelectedMenuItem().set(AdminStorageMenuOptions.PESCADOS_AGUASALADA2);
+
     }
 
-    public void initialize() {
-        // Obtener la instancia del Singleton
-        AlmacenData almacenData = AlmacenData.getInstance();
-        NodoAlmacen almacenGeneralHuarique = almacenData.obtenerArbol();
-
-        //retorna un array de "colas"
-        ArrayList<Queue<ColaAlmacen>> x = almacenGeneralHuarique.mostrarDatos("carne");
-
-        // Mostrar los lotes de pescado en la lista
-        for (Queue<ColaAlmacen> colaSubcategoria : x) {
-            for (ColaAlmacen item: colaSubcategoria) {
-                listView_pescadosAD.getItems().add(item.toString());
-            }
-        }
-    }
 
 }

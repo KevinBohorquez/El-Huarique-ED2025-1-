@@ -11,7 +11,7 @@ public class Almacen {
     public String diaLlegada;
 
 
-    Almacen(String tipo, double cantidad, int numeroLote) {
+    public Almacen(String tipo, double cantidad, int numeroLote) {
         this.numeroLote = numeroLote;
         this.cantidad = cantidad;
         this.tipo = tipo;
@@ -21,4 +21,11 @@ public class Almacen {
                 LocalDateTime.now().getYear());
         this.horaLlegada = String.format("%02d:%02d", LocalDateTime.now().getHour(), LocalDateTime.now().getMinute());
     }
+
+    @Override
+    public String toString() {
+        return String.format("📦 %s \t Lote: %d \t Cant: %.2f kg \t Llegada: %s %s",
+                tipo, numeroLote, cantidad, diaLlegada, horaLlegada);
+    }
+
 }

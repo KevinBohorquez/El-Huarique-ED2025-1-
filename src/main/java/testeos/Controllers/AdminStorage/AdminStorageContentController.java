@@ -22,6 +22,7 @@ public class AdminStorageContentController implements Initializable {
                 case PESCADOS -> client_parent.setCenter(Model.getInstance().getViewFactory().getPescadosView());
                 case PESCADOS_AGUADULCE -> client_parent.setCenter(Model.getInstance().getViewFactory().getPescados_aguadulceView());
                 case PESCADOS_AGUASALADA -> client_parent.setCenter(Model.getInstance().getViewFactory().getPescados_aguasaladaView());
+                case PESCADOS_AGUASALADA2 -> client_parent.setCenter(Model.getInstance().getViewFactory().getPescados_aguasalada2View());
                 case PESCADOS_MARISCOS -> client_parent.setCenter(Model.getInstance().getViewFactory().getPescados_mariscosView());
                 default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardAlmaView());
             }
