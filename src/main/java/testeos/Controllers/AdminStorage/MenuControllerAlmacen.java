@@ -25,13 +25,10 @@ public class MenuControllerAlmacen implements Initializable {
 
     public NodoAlmacen nodoAlmacen;
 
-
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().setMenuAlmacenController(this);
     }
     public MenuControllerAlmacen(){
-
     }
 
 

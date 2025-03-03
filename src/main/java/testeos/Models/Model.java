@@ -9,7 +9,6 @@ import testeos.Controllers.AdminStorage.MenuControllerAlmacen;
 import testeos.Controllers.Structures.Almacen;
 import testeos.Controllers.Structures.Cliente;
 import testeos.Controllers.Structures.ColaAlmacen;
-import testeos.Controllers.Structures.ColaClientes;
 import testeos.Controllers.Structures.ListaClientes;
 import testeos.Views.ViewFactory;
 import java.sql.ResultSet;
@@ -20,7 +19,7 @@ public class Model {
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
 
-    public final ObservableList<QueueClient> allClients;
+    //public final ObservableList<QueueClient> allClients;
     public final ObservableList<Almacen> allProductsP1;
     public final ObservableList<Almacen> allProductsP2;
     public final ObservableList<Almacen> allProductsP3;
@@ -35,7 +34,7 @@ public class Model {
     private boolean adminStorageLoginSuccessFlag;
     private boolean adminLoginSuccessFlag;
 
-    private MenuController menuController;
+    //private MenuController menuController;
     private MenuControllerAlmacen menuControllerAlmacen;
     private AlmacenController almacenController;
 
@@ -237,5 +236,15 @@ public class Model {
     }
     public void setMenuAlmacenController(MenuControllerAlmacen menuControllerAlmacen) {
         this.menuControllerAlmacen = menuControllerAlmacen;
+    }
+
+    public void eliminarAlmacen( String subcategoria){
+        AlmacenData almacenData = AlmacenData.getInstance();
+
+        switch(subcategoria){
+            case "salada"->{
+                almacenData.getSal().desencolar();
+            }
+        }
     }
 }

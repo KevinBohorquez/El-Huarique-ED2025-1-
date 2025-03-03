@@ -6,8 +6,10 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="almacen_container" stylesheets="@../../../Styles/Transactions.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.AdminStorage.AlmacenController">
     <Text layoutX="329.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Productos GAAA" AnchorPane.leftAnchor="329.0" AnchorPane.topAnchor="19.626953125" />
-    <Text layoutX="62.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Tipo" />
-    <Text layoutX="289.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Cantidad" />
-    <Text layoutX="542.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Lote" />
+    <Text layoutX="56.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Tipo" />
+    <Text layoutX="141.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Cantidad" />
+    <Text layoutX="256.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Lote" />
     <ListView fx:id="almacen_listviewPS" layoutX="78.0" layoutY="156.0" prefHeight="640.0" prefWidth="830.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
+   <Text layoutX="351.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Hora llegada" />
+   <Text layoutX="483.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Tiempo en almacen" wrappingWidth="163.96620178222656" />
 </AnchorPane>

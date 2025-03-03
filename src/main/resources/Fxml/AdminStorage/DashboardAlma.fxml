@@ -27,7 +27,7 @@
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Categoria Producto" />
         <TextField fx:id="input_categoria" prefHeight="20.0" prefWidth="328.0" />
 
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Producto" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="SubCategoría" />
         <TextField fx:id="input_subCategoria" prefHeight="20.0" prefWidth="328.0" />
 
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Cantidad" />
