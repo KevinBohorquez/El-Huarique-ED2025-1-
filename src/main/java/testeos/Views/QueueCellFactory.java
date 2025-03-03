@@ -14,7 +14,7 @@ public class QueueCellFactory extends ListCell<QueueClient> {
             setGraphic(null);
         } else {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/WaitngCell.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/AssignedCell.fxml"));
                 QueueCellController controller = new QueueCellController();
                 loader.setController(controller);
                 setText(null);
