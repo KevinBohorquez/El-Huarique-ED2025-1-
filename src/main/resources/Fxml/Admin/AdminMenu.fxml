@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testeos.Controllers.Admin.AdminOptionsController">
-   <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+   <AnchorPane prefHeight="621.0" prefWidth="159.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
          <FontAwesomeIconView glyphName="CUTLERY" size="40" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="El Huarique" />
