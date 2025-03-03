@@ -12,8 +12,8 @@ import java.util.ResourceBundle;
 
 public class AlmacenController implements Initializable {
     public ListView<Almacen> almacen_listviewPS;
-    public ListView almacen_listviewPD;
-    public ListView almacen_listviewPM;
+    public ListView<Almacen> almacen_listviewPD;
+    public ListView<Almacen> almacen_listviewPM;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
