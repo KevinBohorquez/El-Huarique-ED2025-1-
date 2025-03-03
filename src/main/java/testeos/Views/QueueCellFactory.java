@@ -7,18 +7,21 @@ import testeos.Models.QueueClient;
 
 public class QueueCellFactory extends ListCell<QueueClient> {
     @Override
-    protected void updateItem(QueueClient qclient, boolean empty) {
-        super.updateItem(qclient, empty);
-        if(empty){
+    protected void updateItem(QueueClient aClient, boolean empty) {
+        super.updateItem(aClient, empty);
+        if (empty || aClient == null) {
             setText(null);
             setGraphic(null);
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/TransactionCell.fxml"));
-            QueueCellController controller = new QueueCellController(qclient);
-            loader.setController(controller);
-            setText(null);
             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/WaitngCell.fxml"));
+                QueueCellController controller = new QueueCellController();
+                loader.setController(controller);
+                setText(null);
                 setGraphic(loader.load());
+
+                // Enlaza los datos con el controlador
+                controller.setAssignedClient(aClient);
             } catch (Exception e) {
                 e.printStackTrace();
             }

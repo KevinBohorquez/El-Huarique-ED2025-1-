@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import testeos.Controllers.Structures.ColaClientes;
+import testeos.Controllers.Structures.ListaClientes;
 import testeos.Controllers.Structures.Mesa;
 import testeos.Models.Model;
 
@@ -53,7 +53,7 @@ public class MenuController implements Initializable {
     public TextField costumer_cant_fld; // Cantidad de clientes a reservar
 
     private Mesa[] mesas;
-    private ColaClientes colaClientes;
+    private ListaClientes listaClientes;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,7 +71,7 @@ public class MenuController implements Initializable {
 
     public MenuController() {
         mesas = new Mesa[10];
-        colaClientes = new ColaClientes();
+        listaClientes = new ListaClientes();
         cargarMesasDesdeCSV("src/main/java/testeos/Views/mesasCapacidades.csv");
     }
 
@@ -102,8 +102,8 @@ public class MenuController implements Initializable {
         return (mesaId >= 1 && mesaId <= 10) ? tableCaps[mesaId - 1] : null;
     }
 
-    public ColaClientes getCola(){
-        return this.colaClientes;
+    public ListaClientes getCola(){
+        return this.listaClientes;
     }
 
     public void agregarCliente() {
@@ -133,7 +133,7 @@ public class MenuController implements Initializable {
             }
 
             // Agregar clientes
-            colaClientes.Encolar(
+            listaClientes.Crear(
                     name_costumer_fld.getText(),
                     dni_costumer_fld.getText(),
                     name_waiter_fld.getText(),
@@ -162,7 +162,7 @@ public class MenuController implements Initializable {
     public void eliminarCliente(String dni, String Mesa) {
         Mesa numeroDeMesa = mesas[Integer.parseInt(Mesa) - 1];
 
-        colaClientes.desencolarPorDNI(dni);
+        listaClientes.eliminarPorDNI(dni);
         numeroDeMesa.clientes.eliminarLista(dni);
         numeroDeMesa.setCantidad(0);
 

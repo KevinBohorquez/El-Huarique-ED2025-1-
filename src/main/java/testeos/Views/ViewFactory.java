@@ -3,6 +3,7 @@ package testeos.Views;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -13,12 +14,15 @@ import testeos.Controllers.AdminStorage.SubCategorias.Pescados_AS_Controller;
 
 import java.io.IOException;
 
+import java.io.IOException;
+
 public class ViewFactory {
     private AccountType loginAccountType;
 
     //Admin views
     private final ObjectProperty<AdminMenuOptions> AdminSelectedMenuItem;
     private AnchorPane dashboardView;
+    private AnchorPane assignedView;
     private AnchorPane transactionsView;
 
     //Admin Storage views
@@ -65,6 +69,16 @@ public class ViewFactory {
             }
         }
         return dashboardView;
+    }
+
+    public Parent getAssignedView() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Waiting.fxml"));
+        try {
+            return loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public AnchorPane getDashboardAlmaView(){

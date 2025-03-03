@@ -1,0 +1,50 @@
+.cell_container {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+#costumer_lbl {
+    -fx-text-fill: #2a9d8f;
+}
+
+#DNI_lbl {
+    -fx-text-fill: #264653;
+}
+
+#waiter_lbl {
+    -fx-text-fill: #e76f51;
+}
+
+#mesa_asignada_lbl {
+    -fx-text-fill: #f4a261;
+}
+
+#costumer_cant_lbl {
+    -fx-text-fill: #3a86ff;
+}
+
+#eliminar_btn {
+    -fx-background-color: #e63946;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#eliminar_btn:hover {
+    -fx-background-color: #d62828;
+}
+
+#eliminar_btn:pressed {
+    -fx-background-color: #b22222;
+}

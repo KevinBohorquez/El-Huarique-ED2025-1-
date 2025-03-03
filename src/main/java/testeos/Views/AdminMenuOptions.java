@@ -2,5 +2,6 @@ package testeos.Views;
 
 public enum AdminMenuOptions {
     MENU,
-    COLA
+    COLA,
+    LISTA
 }
