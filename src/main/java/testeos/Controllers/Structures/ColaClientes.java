@@ -3,46 +3,47 @@ package testeos.Controllers.Structures;
 import java.util.Objects;
 
 public class ColaClientes {
-    private Cliente cabeza;
+    private Cliente frente;
 
     public ColaClientes() {
-        cabeza = null;
+        frente = null;
     }
 
-    public void agregarCliente(String nombre, String DNI, String mesero, int numMesa, int cant) {
-        Cliente nuevoCliente = new Cliente(nombre, DNI, mesero, numMesa, cant);
-        if (cabeza == null) {
-            cabeza = nuevoCliente;
+    public void Encolar(String nombre, String DNI, String mesero, int numMesa, int cant) {
+        Cliente nuevoNodo = new Cliente(nombre, DNI, mesero, numMesa, cant);
+        if (frente == null) {
+            frente = nuevoNodo;
         } else {
-            Cliente actual = cabeza;
+            Cliente actual = frente;
             while (actual.siguiente != null) {
                 actual = actual.siguiente;
             }
-            actual.siguiente = nuevoCliente;
+            actual.siguiente = nuevoNodo;
         }
     }
 
-    public void eliminarClientePorDNI(String dni) {
-        if (cabeza == null) {
-            return;
+    public Cliente existeClienteEnMesa(int mesaId) {
+        if (frente == null) return null;
+
+        if (frente.numMesa == mesaId) {
+            Cliente clienteEncontrado = frente;
+            frente = frente.siguiente;
+            return clienteEncontrado;
         }
 
-        if (Objects.equals(cabeza.DNI, dni)) {
-            cabeza = cabeza.siguiente;
-            return;
-        }
-
-        Cliente actual = cabeza;
-        while (actual.siguiente != null && !Objects.equals(actual.siguiente.DNI, dni)) {
+        Cliente actual = frente;
+        while (actual.siguiente != null) {
+            if (actual.siguiente.numMesa == mesaId) {
+                Cliente clienteEncontrado = actual.siguiente;
+                actual.siguiente = actual.siguiente.siguiente;
+                return clienteEncontrado;
+            }
             actual = actual.siguiente;
         }
-
-        if (actual.siguiente != null) {
-            actual.siguiente = actual.siguiente.siguiente;
-        }
+        return null;
     }
 
-    public Cliente getCabeza() {
-        return cabeza;
+    public Cliente getFrente(){
+        return frente;
     }
 }

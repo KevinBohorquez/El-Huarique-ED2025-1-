@@ -3,7 +3,6 @@ package testeos.Views;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -14,7 +13,6 @@ import testeos.Controllers.AdminStorage.SubCategorias.Pescados_AS_Controller;
 
 import java.io.IOException;
 
-import java.io.IOException;
 
 public class ViewFactory {
     private AccountType loginAccountType;
@@ -22,8 +20,8 @@ public class ViewFactory {
     //Admin views
     private final ObjectProperty<AdminMenuOptions> AdminSelectedMenuItem;
     private AnchorPane dashboardView;
-    private AnchorPane assignedView;
     private AnchorPane transactionsView;
+    private AnchorPane clientesActualesView;
 
     //Admin Storage views
     private final ObjectProperty<AdminStorageMenuOptions> AdminStorageSelectedMenuItem;
@@ -71,14 +69,15 @@ public class ViewFactory {
         return dashboardView;
     }
 
-    public Parent getAssignedView() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Assigned.fxml"));
-        try {
-            return loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+    public AnchorPane getClientesActualesView() {
+        if (clientesActualesView == null) {
+            try {
+                clientesActualesView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientesActuales.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return clientesActualesView;
     }
 
     public AnchorPane getDashboardAlmaView(){
@@ -95,7 +94,7 @@ public class ViewFactory {
     public AnchorPane getTransactionsView() {
         if (transactionsView == null) {
             try {
-                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Transactions.fxml")).load();
+                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientesCola.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
