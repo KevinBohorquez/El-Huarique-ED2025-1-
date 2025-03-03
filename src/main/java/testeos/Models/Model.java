@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import testeos.Controllers.Admin.MenuController;
 import testeos.Controllers.Structures.Cliente;
-import testeos.Controllers.Structures.ColaClientes;
+import testeos.Controllers.Structures.ListaClientes;
 import testeos.Views.ViewFactory;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
-    public final ObservableList<QueueClient> allClients;
+    public final ObservableList<ListClient> allClients;
     private MenuController menuController;
     private final Client client;
     private boolean adminStorageLoginSuccessFlag;
@@ -47,9 +47,9 @@ public class Model {
         return menuController;
     }
 
-    private void prepareClients(ObservableList<QueueClient> qclient, MenuController dashboard, int limit) {
-        ColaClientes colaClientes = dashboard.getCola();
-        Cliente actual = colaClientes.getFrente();
+    private void prepareClients(ObservableList<ListClient> qclient, MenuController dashboard, int limit) {
+        ListaClientes listaClientes = dashboard.getCola();
+        Cliente actual = listaClientes.getFrente();
         int count = 0;
         while (actual != null && count < limit) {
             String nombre = actual.nombre;
@@ -59,13 +59,13 @@ public class Model {
             String tiempoEsperando = actual.hora_asignacion;
             String numMesa = String.valueOf(actual.numMesa);
             String costumer_cant = String.valueOf(actual.cant);
-            qclient.add(new QueueClient(nombre, dni, mesero, horaAsignacion, tiempoEsperando, numMesa, costumer_cant));
+            qclient.add(new ListClient(nombre, dni, mesero, horaAsignacion, tiempoEsperando, numMesa, costumer_cant));
             actual = actual.siguiente;
             count++;
         }
     }
 
-    public ObservableList<QueueClient> getAllTransactions() {
+    public ObservableList<ListClient> getAllTransactions() {
         return allClients;
     }
 

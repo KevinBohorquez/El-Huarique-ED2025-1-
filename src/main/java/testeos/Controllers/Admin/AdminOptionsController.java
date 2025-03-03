@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 public class AdminOptionsController implements Initializable {
     public Button menu_btn;
+    public Button queue_btn1;
     public Button queue_btn;
     public Button logout_btn;
     public Button report_btn;
@@ -22,8 +23,14 @@ public class AdminOptionsController implements Initializable {
 
     private void addListeners() {
         menu_btn.setOnAction(event -> onMenu());
-        queue_btn.setOnAction(event -> onCola());
+        queue_btn1.setOnAction(event -> onCola());
+        queue_btn.setOnAction(event -> onLista());
         logout_btn.setOnAction(event -> onLogout());
+    }
+
+    private void onLista() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.LISTA);
+        Model.getInstance().getDashboardController().actualizarColoresDeEstado();
     }
 
     private void onCola() {

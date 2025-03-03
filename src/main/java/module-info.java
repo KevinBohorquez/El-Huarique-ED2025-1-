@@ -9,6 +9,9 @@ module com.example.banquitofeliz {
     requires javafx.controls;
 
     opens testeos.Controllers.AdminStorage to javafx.fxml;
+    opens testeos.Controllers to javafx.fxml;
+    opens testeos.Controllers.Admin to javafx.fxml;
+    opens testeos.Models to javafx.fxml;
     opens testeos to javafx.graphics;
     exports testeos;
     exports testeos.Controllers;
